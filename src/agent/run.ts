@@ -21,13 +21,10 @@ export const runAgent = async (
         prompt: userMessage,
         system: SYSTEM_PROMPT,
         tools,
-        telemtry: {
+        telemetry: {
             isEnabled: true
         }
     });
-
-    console.log("text ====== ", text);
-    console.log("toolCalls ====== ", toolCalls);
 
     toolCalls.forEach(async toolCall => {
         const output = await executeTool(toolCall.toolName, toolCall.input);
